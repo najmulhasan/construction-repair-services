@@ -194,16 +194,16 @@ const Contact = () => {
 
   // Direct contact methods
   const handleDirectCall = () => {
-    window.location.href = "tel:+15551234567";
+    window.location.href = "tel:+6586187859";
   };
 
   const handleDirectEmail = () => {
-    window.location.href = "mailto:info@construction.com";
+    window.location.href = "mailto:asadzzaman933@gmail.com";
   };
 
   const handleWhatsAppContact = () => {
     // Open WhatsApp with a pre-filled message
-    const phoneNumber = "15551234567"; // Without the + sign
+    const phoneNumber = "+6586187859"; // Without the + sign
     const message =
       "Hello, I would like to inquire about your construction services.";
     window.open(
@@ -240,8 +240,8 @@ const Contact = () => {
             <i className="fas fa-map-marker-alt"></i>
             <div>
               <h3>Address</h3>
-              <p>123 Construction Street</p>
-              <p>Building District, City 12345</p>
+              <p>Jalan Street Singapore</p>
+              <p>Singapore</p>
             </div>
           </div>
 
@@ -249,8 +249,8 @@ const Contact = () => {
             <i className="fas fa-phone"></i>
             <div>
               <h3>Phone</h3>
-              <p>+1 (555) 123-4567</p>
-              <p>+1 (555) 765-4321</p>
+              <p>+6586187859‬</p>
+              <p>+6586187859‬</p>
             </div>
           </div>
 
@@ -258,8 +258,8 @@ const Contact = () => {
             <i className="fas fa-envelope"></i>
             <div>
               <h3>Email</h3>
-              <p>info@construction.com</p>
-              <p>support@construction.com</p>
+              <p>asadzzaman933@gmail.com </p>
+              <p>asadservice88@gmail.com</p>
             </div>
           </div>
 
