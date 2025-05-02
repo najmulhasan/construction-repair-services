@@ -104,6 +104,12 @@ const Blogs = () => {
       date: "March 10, 2024",
       category: "Construction",
     },
+    {
+      id: 9,
+      title: "A Guide to Choosing the Right Electrical Panel for Your Home",
+      excerpt:
+        "Discover the factors to consider when selecting the right electrical panel for your home.",
+    },
   ];
 
   const openBlogDetail = (blog) => {
