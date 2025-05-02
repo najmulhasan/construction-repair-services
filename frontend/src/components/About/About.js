@@ -123,40 +123,40 @@ const About = () => {
   // Timeline data with more accurate milestones
   const timelineData = [
     {
-      year: 2010,
+      year: 2020,
       title: "Company Founded",
       description:
-        "Our journey began with a small team of passionate professionals dedicated to quality construction and repair services in the local community.",
+        "SB GLASS POLISHING C&E PTE.LTD. was founded in 2020 with a vision to provide quality construction and repair services to the community. Through years of hard work and dedication, we have grown into a trusted name in the industry. The company is a Local Company and it's current status is Live company. The company was registered/incorporated on 31 October 2020 and its business is registered under Singapore Business Registration Number: 202034901K.  Our journey began with a small team of passionate professionals dedicated to quality construction and repair services in the local community.",
     },
     {
-      year: 2013,
+      year: 2021,
       title: "Expanded Services",
       description:
         "We expanded our range of services to include specialized electrical work, advanced plumbing solutions, and comprehensive HVAC installations.",
     },
     {
-      year: 2015,
+      year: 2022,
       title: "Regional Growth",
       description:
         "Our reputation for quality work led to expansion across five major cities in the region, serving over 1,000 satisfied clients.",
     },
     {
-      year: 2018,
+      year: 2023,
       title: "Industry Recognition",
       description:
         "Received the Contractor of the Year award and three excellence in service awards from the Regional Construction Association.",
     },
     {
-      year: 2020,
+      year: 2023,
       title: "Technology Integration",
       description:
         "Implemented smart diagnostic tools, digital project management, and a customer portal to improve service delivery and client experience.",
     },
     {
-      year: 2022,
+      year: 2024,
       title: "Sustainability Commitment",
       description:
-        "Launched eco-friendly initiatives including energy-efficient installations, sustainable materials usage, and reduced carbon footprint operations.",
+        "Launched eco-friendly initiatives including energy-efficient installations, sustainable materials usage, and reduced carbon footprint operations. The company is committed to sustainability and environmental responsibility. The company Principal activity is General Contracting(Building Construction and Renovation & major upgrading works).",
     },
   ];
 
@@ -255,8 +255,8 @@ const About = () => {
 
   // Enhanced contact information with more comprehensive details
   const contactInfo = {
-    address: "123 Construction Avenue, Building District, NY 10001",
-    phone: "+1 (555) 123-4567",
+    address: "29 DESKER ROAD#01-01, SINGAPORE 209562",
+    phone: "+6584400653",
     email: "info@constructionrepair.com",
     workingHours: {
       weekdays: "Monday - Friday: 8:00 AM - 6:00 PM",
@@ -312,7 +312,7 @@ const About = () => {
           <div className="two-column">
             <div>
               <p className="lead-text">
-                Since 2010, we've built our reputation on delivering exceptional
+                Since 2020, we've built our reputation on delivering exceptional
                 construction and repair services to residential and commercial
                 clients nationwide. What began as a small team with a big vision
                 has evolved into a comprehensive service provider renowned for

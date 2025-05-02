@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 // Import our custom CSS
 import "./Hero.css";
+import electricalService from "../../images/electricalConnection.jpg";
+import plumbing from "../../images/PlumbingGizzersetup.jpg";
+import ConstructionWork from "../../images/ConstructionRenuvation.jpg";
+import painting from "../../images/painting.jpg";
+import AcServiceing from "../../images/ACsetup.jpg";
 
 const Hero = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -14,31 +19,28 @@ const Hero = () => {
     {
       title: "Electrical Services",
       subtitle: "Professional electrical repairs and installations",
-      image:
-        "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+      image: electricalService,
     },
+
     {
       title: "Plumbing Solutions",
       subtitle: "Expert plumbing services for your home",
-      image:
-        "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: plumbing,
     },
     {
       title: "Construction Work",
       subtitle: "Building your dreams with precision and care",
-      image:
-        "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: ConstructionWork,
     },
     {
       title: "Professional Painting",
       subtitle: "Transform your space with our painting services",
-      image:
-        "https://images.unsplash.com/photo-1562259929-b4e28e4e9b8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: painting,
     },
     {
       title: "Air Conditioning Service",
       subtitle: "Keep your comfort with our AC maintenance",
-      image: "../../images/AcServicing.png",
+      image: AcServiceing,
     },
   ];
 

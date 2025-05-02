@@ -1,6 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ServicePage.css";
+import image from "../../images/electricalConnection.jpg";
+import image2 from "../../images/electricalConnection2.jpg";
+import image3 from "../../images/electricalConnection3.jpg";
+import image4 from "../../images/ElectricalWaring.jpg";
+import image5 from "../../images/ElectricalWaring2.jpg";
+import image6 from "../../images/ACGas.jpg";
+import image7 from "../../images/construction.jpg";
+import image8 from "../../images/AcGas3.jpg";
 
 const ElectricalService = () => {
   return (
@@ -25,7 +33,13 @@ const ElectricalService = () => {
               everything from minor repairs to complete home rewiring. Our
               licensed electricians are equipped to handle any electrical
               challenge in your home, ensuring all work meets or exceeds safety
-              standards.
+              standards and quality codes.
+            </p>
+            <p>
+              From minor repairs to complete home rewiring, our residential
+              electrical services keep your home powered safely and efficiently.
+              Our licensed electricians are trained to handle all aspects of
+              home electrical systems with precision and attention to detail.
             </p>
             <p>
               We understand the importance of reliable electricity in modern
@@ -35,10 +49,7 @@ const ElectricalService = () => {
             </p>
           </div>
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Electrician installing outlet"
-            />
+            <img src={image} alt="Residential Electrical Services" />
           </div>
         </div>
       </section>
@@ -49,10 +60,7 @@ const ElectricalService = () => {
         </h2>
         <div className="service-content image-left">
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1565608438257-fac3c27beb36?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Commercial electrical panel"
-            />
+            <img src={image2} alt="Commercial Electrical Services" />
           </div>
           <div className="service-text">
             <p>
@@ -78,7 +86,9 @@ const ElectricalService = () => {
         </h2>
         <div className="feature-list">
           <div className="feature-item">
-            <div className="feature-icon">⚡</div>
+            <div className="feature-icon">
+              <img src={image3} alt="Electrical Repairs" />{" "}
+            </div>
             <h3 className="feature-title">Electrical Repairs</h3>
             <p className="feature-desc">
               Fast, reliable repairs for all electrical issues, from faulty
@@ -87,7 +97,9 @@ const ElectricalService = () => {
             </p>
           </div>
           <div className="feature-item">
-            <div className="feature-icon">💡</div>
+            <div className="feature-icon">
+              <img src={image4} alt="Lighting Installation" />{" "}
+            </div>
             <h3 className="feature-title">Lighting Installation</h3>
             <p className="feature-desc">
               Expert installation of all types of lighting fixtures, including
@@ -96,7 +108,9 @@ const ElectricalService = () => {
             </p>
           </div>
           <div className="feature-item">
-            <div className="feature-icon">🔌</div>
+            <div className="feature-icon">
+              <img src={image5} alt="Outlet & Switch Installation" />
+            </div>
             <h3 className="feature-title">Outlet & Switch Installation</h3>
             <p className="feature-desc">
               Installation and upgrade of electrical outlets and switches,
@@ -104,7 +118,9 @@ const ElectricalService = () => {
             </p>
           </div>
           <div className="feature-item">
-            <div className="feature-icon">📊</div>
+            <div className="feature-icon">
+              <img src={image6} alt="Panel Upgrades" />
+            </div>
             <h3 className="feature-title">Panel Upgrades</h3>
             <p className="feature-desc">
               Upgrade your electrical panel to accommodate increased electrical
@@ -112,7 +128,9 @@ const ElectricalService = () => {
             </p>
           </div>
           <div className="feature-item">
-            <div className="feature-icon">🏠</div>
+            <div className="feature-icon">
+              <img src={image7} alt="Home Rewiring" />
+            </div>
             <h3 className="feature-title">Home Rewiring</h3>
             <p className="feature-desc">
               Complete or partial rewiring services to replace outdated or
@@ -120,7 +138,9 @@ const ElectricalService = () => {
             </p>
           </div>
           <div className="feature-item">
-            <div className="feature-icon">🔍</div>
+            <div className="feature-icon">
+              <img src={image8} alt="Electrical Inspections" />
+            </div>
             <h3 className="feature-title">Electrical Inspections</h3>
             <p className="feature-desc">
               Thorough inspections to identify potential hazards and ensure your

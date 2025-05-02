@@ -250,7 +250,6 @@ const Contact = () => {
             <div>
               <h3>Phone</h3>
               <p>+6586187859‬</p>
-              <p>+6586187859‬</p>
             </div>
           </div>
 

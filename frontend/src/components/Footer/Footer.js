@@ -19,9 +19,9 @@ const Footer = () => {
 
   // Company contact information
   const contactInfo = {
-    address: "123 Construction Avenue, Building District, NY 10001",
-    phone: "+1 (555) 123-4567",
-    email: "info@constructionrepair.com",
+    address: "29 DESKER ROAD #01-01, SINGAPORE 209562",
+    phone: "+6585402370",
+    email: "asadservice88@gmail.com",
     hours: "Mon-Fri: 9:00 AM - 6:00 PM",
   };
 
@@ -133,7 +133,7 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div className="footer-section">
-              <h3 className="footer-heading">Newsletter</h3>
+              <h3 className="footer-heading">Subscribe</h3>
               <p className="newsletter-text">
                 Subscribe to our newsletter to receive updates and special
                 offers

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ServicePage.css";
+import AcServiceing from "../../images/ACsetup.jpg";
+import AcFeeting from "../../images/AcFeeting.jpg";
 
 const AcMaintenance = () => {
   return (
@@ -35,10 +37,7 @@ const AcMaintenance = () => {
             </p>
           </div>
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1581578017426-04fbc2b0718a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="AC system maintenance"
-            />
+            <img src={AcServiceing} alt="AC maintenance" />
           </div>
         </div>
       </section>
@@ -47,10 +46,7 @@ const AcMaintenance = () => {
         <h2 className="service-section-title">Repair Services</h2>
         <div className="service-content image-left">
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="HVAC repair service"
-            />
+            <img src={AcFeeting} alt="AC repair" />
           </div>
           <div className="service-text">
             <p>

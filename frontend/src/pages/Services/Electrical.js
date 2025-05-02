@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ServicePage.css";
+import image from "../../images/electricalConnection.jpg";
+import image2 from "../../images/electricalConnection2.jpg";
+import image3 from "../../images/electricalConnection3.jpg";
+import image4 from "../../images/ElectricalWaring.jpg";
+import image5 from "../../images/ElectricalWaring2.jpg";
 
 const Electrical = () => {
   return (
@@ -19,6 +24,7 @@ const Electrical = () => {
           Residential Electrical Services
         </h2>
         <div className="service-content image-right">
+          <img src={image} alt="Electrician working on residential wiring" />
           <div className="service-text">
             <p>
               From minor repairs to complete home rewiring, our residential
@@ -35,10 +41,7 @@ const Electrical = () => {
             </p>
           </div>
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Electrician working on residential wiring"
-            />
+            <img src={image2} alt="Electrician working on residential wiring" />
           </div>
         </div>
       </section>
@@ -49,10 +52,7 @@ const Electrical = () => {
         </h2>
         <div className="service-content image-left">
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1565608438257-fac3c27aa6e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Commercial electrical panel installation"
-            />
+            <img src={image3} alt="Electrician working on commercial wiring" />
           </div>
           <div className="service-text">
             <p>
@@ -78,7 +78,13 @@ const Electrical = () => {
         </h2>
         <div className="feature-list">
           <div className="feature-item">
-            <div className="feature-icon">💡</div>
+            <div className="feature-icon">
+              {" "}
+              <img
+                src={image4}
+                alt="Electrician working on residential wiring"
+              />
+            </div>
             <h3 className="feature-title">Electrical Repairs</h3>
             <p className="feature-desc">
               Expert diagnosis and repair of electrical issues, from faulty
@@ -178,10 +184,7 @@ const Electrical = () => {
             </p>
           </div>
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Smart home electrical installation"
-            />
+            <img src={image5} alt="Electrician working on residential wiring" />
           </div>
         </div>
       </section>

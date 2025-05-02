@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ServicePage.css";
+import plumbing from "../../images/PlumbingSetting.jpg";
+import plumbing2 from "../../images/PlumbingGizzersetup.jpg";
+import plumbing3 from "../../images/PlumbingSetting2jpg.jpg";
+import plumbing4 from "../../images/h2.jpg";
 
 const Plumbing = () => {
   return (
@@ -17,6 +21,8 @@ const Plumbing = () => {
       <section className="service-section">
         <h2 className="service-section-title">Emergency Plumbing Repairs</h2>
         <div className="service-content image-right">
+          <img src={plumbing} alt="plumbingWork" />
+
           <div className="service-text">
             <p>
               Plumbing emergencies require immediate attention to prevent water
@@ -36,12 +42,7 @@ const Plumbing = () => {
               a single visit, minimizing disruption to your home or business.
             </p>
           </div>
-          <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1580341289255-5b47c98a59dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Emergency plumbing repair"
-            />
-          </div>
+          <div className="service-image"></div>
         </div>
       </section>
 
@@ -51,10 +52,7 @@ const Plumbing = () => {
         </h2>
         <div className="service-content image-left">
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1585704032915-c3400739413d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Plumbing fixture installation"
-            />
+            <img src={plumbing2} alt="plumbingWork2" />
           </div>
           <div className="service-text">
             <p>
@@ -163,10 +161,7 @@ const Plumbing = () => {
             </p>
           </div>
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Commercial plumbing service"
-            />
+            <img src={plumbing3} alt="plumbingWork3" />
           </div>
         </div>
       </section>
@@ -175,10 +170,7 @@ const Plumbing = () => {
         <h2 className="service-section-title">Preventive Maintenance Plans</h2>
         <div className="service-content image-left">
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Plumbing maintenance"
-            />
+            <img src={plumbing4} alt="plumbingWork4" />
           </div>
           <div className="service-text">
             <p>

@@ -158,10 +158,16 @@ const Navbar = () => {
   };
 
   const serviceCategories = [
-    { name: "Plumbing", path: "plumbing-service" },
+    {
+      name: "Plumbing",
+      path: "plumbing-service",
+    },
     { name: "Electrical", path: "electrical-service" },
     { name: "Painting", path: "painting-service" },
-    { name: "AC Repairing", path: "ac-repairing" },
+    {
+      name: "AC Repairing",
+      path: "ac-repairing",
+    },
     { name: "Construction Work", path: "construction-work" },
   ];
 
@@ -178,7 +184,7 @@ const Navbar = () => {
       )}
 
       {/* Page indicator badge */}
-      <div className="fixed top-5 right-5 z-50 px-3 py-1 rounded-full text-sm font-bold shadow-md page-indicator">
+      <div className="fixed top-5 right-5 z-50 px-3 py-1 rounded-full text-sm font-bold shadow-md page-indicator hidden md:block">
         {location.pathname === "/" && (
           <span className="text-white bg-blue-600 px-3 py-1 rounded-full">
             Home
@@ -267,7 +273,7 @@ const Navbar = () => {
                   </svg>
                 </button>
                 {isServiceOpen && (
-                  <div className="absolute z-50 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                  <div className="absolute z-50 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                     <div
                       className="py-1"
                       role="menu"
@@ -282,7 +288,18 @@ const Navbar = () => {
                           role="menuitem"
                           onClick={() => setIsServiceOpen(false)}
                         >
-                          {category.name}
+                          <div className="flex items-center">
+                            {category.image && (
+                              <div className="w-10 h-10 mr-3 rounded overflow-hidden">
+                                <img
+                                  src={category.image}
+                                  alt={category.name}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            )}
+                            <span>{category.name}</span>
+                          </div>
                         </Link>
                       ))}
                     </div>
@@ -462,7 +479,18 @@ const Navbar = () => {
                         setIsOpen(false);
                       }}
                     >
-                      {category.name}
+                      <div className="flex items-center">
+                        {category.image && (
+                          <div className="w-10 h-10 mr-3 rounded overflow-hidden">
+                            <img
+                              src={category.image}
+                              alt={category.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        )}
+                        <span>{category.name}</span>
+                      </div>
                     </Link>
                   ))}
                 </div>

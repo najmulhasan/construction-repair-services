@@ -21,6 +21,8 @@ const Home = () => {
         "Expert plumbing services including repairs, installations, and maintenance for all your water systems.",
       icon: "🚿",
       path: "/services/plumbing-service",
+      image:
+        "https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
     },
     {
       id: 3,
@@ -37,6 +39,8 @@ const Home = () => {
         "Transform your space with our premium interior and exterior painting services.",
       icon: "🎨",
       path: "/services/painting-service",
+      image:
+        "https://images.unsplash.com/photo-1562259949-e8e7689d7828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
     },
     {
       id: 5,
@@ -45,6 +49,8 @@ const Home = () => {
         "Keep your cooling systems running efficiently with our comprehensive maintenance and repair services.",
       icon: "❄️",
       path: "/services/ac-repairing",
+      image:
+        "https://images.unsplash.com/photo-1581788604067-811e8650f3cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
     },
   ];
 
@@ -124,6 +130,15 @@ const Home = () => {
                 key={service.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-2"
               >
+                {service.image && (
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                )}
                 <div className="p-6">
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">

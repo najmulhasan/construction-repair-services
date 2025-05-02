@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ServicePage.css";
+import construction from "../../images/ConstructionRenuvation.jpg";
+import construction2 from "../../images/construction.jpg";
+// import construction3 from "../../images/ConstructionRenuvation3.jpg";
+// import construction4 from "../../images/ConstructionRenuvation4.jpg";
 
 const ConstructionWork = () => {
   return (
@@ -36,10 +40,7 @@ const ConstructionWork = () => {
             </p>
           </div>
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Home renovation project"
-            />
+            <img src={construction} alt="construction" />
           </div>
         </div>
       </section>
@@ -48,10 +49,7 @@ const ConstructionWork = () => {
         <h2 className="service-section-title">New Home Construction</h2>
         <div className="service-content image-left">
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="New home construction"
-            />
+            <img src={construction2} alt="New home construction" />
           </div>
           <div className="service-text">
             <p>
