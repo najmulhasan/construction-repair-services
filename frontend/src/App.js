@@ -39,7 +39,10 @@ function App() {
               path="/services/electrical-service"
               element={<ElectricalService />}
             />
-            <Route path="/services/ac-repairing" element={<AcMaintenance />} />
+            <Route
+              path="/services/ac-maintenance"
+              element={<AcMaintenance />}
+            />
             <Route path="/services/painting-service" element={<Painting />} />
             <Route
               path="/services/construction-work"

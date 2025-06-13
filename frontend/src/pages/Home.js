@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Homepage/Hero";
 import SEO from "../components/SEO/SEO";
+import plumbingImage from "../images/PlumbingSetting2jpg.jpg";
+import electricalImage from "../images/ElectricalWaring.jpg";
+import constructionImage from "../images/constructionRenuvationWork.png";
+import paintingImage from "../images/paintingService.jpg";
+import acRepairImage from "../images/AcFeeting.jpg";
+import certification from "../images/certification2.jpg"; // Assuming you have a certification image
 
 const Home = () => {
   // Services data for the featured services section
@@ -11,54 +17,54 @@ const Home = () => {
       title: "Electrical Services",
       description:
         "Professional electrical repairs, installations and maintenance for residential and commercial properties.",
-      icon: "⚡",
+
       path: "/services/electrical-service",
+      image: electricalImage,
     },
     {
       id: 2,
       title: "Plumbing Solutions",
       description:
         "Expert plumbing services including repairs, installations, and maintenance for all your water systems.",
-      icon: "🚿",
+
       path: "/services/plumbing-service",
-      image:
-        "https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      image: plumbingImage,
     },
     {
       id: 3,
       title: "Construction Work",
       description:
         "Quality construction services from minor renovations to complete custom building projects.",
-      icon: "🏗️",
+      image: constructionImage,
+
       path: "/services/construction-work",
+      image: constructionImage,
     },
     {
       id: 4,
       title: "Professional Painting",
       description:
         "Transform your space with our premium interior and exterior painting services.",
-      icon: "🎨",
+
       path: "/services/painting-service",
-      image:
-        "https://images.unsplash.com/photo-1562259949-e8e7689d7828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+      image: paintingImage,
     },
     {
       id: 5,
       title: "AC Maintenance",
       description:
         "Keep your cooling systems running efficiently with our comprehensive maintenance and repair services.",
-      icon: "❄️",
-      path: "/services/ac-repairing",
-      image:
-        "https://images.unsplash.com/photo-1581788604067-811e8650f3cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60",
+
+      path: "services/ac-maintenance",
+      image: acRepairImage,
     },
   ];
 
   // Statistics for the stats section
   const stats = [
-    { id: 1, value: "5,000+", label: "Completed Projects" },
+    { id: 1, value: "500+", label: "Completed Projects" },
     { id: 2, value: "98%", label: "Customer Satisfaction" },
-    { id: 3, value: "25+", label: "Years Experience" },
+    { id: 3, value: "5+", label: "Years Experience" },
     { id: 4, value: "100+", label: "Expert Technicians" },
   ];
 
@@ -266,9 +272,9 @@ const Home = () => {
 
             <div className="md:w-1/2">
               <img
-                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Professional at work"
-                className="rounded-lg shadow-xl"
+                src={certification}
+                alt="Certified Professionals"
+                className="w-72 h-96 rounded-lg shadow-2xl"
               />
             </div>
           </div>

@@ -49,7 +49,7 @@ const Footer = () => {
     { name: "Plumbing", path: "/services/plumbing-service" },
     { name: "Electrical", path: "/services/electrical-service" },
     { name: "Painting", path: "/services/painting-service" },
-    { name: "AC Repair", path: "/services/ac-repairing" },
+    { name: "AC Maintenance", path: "/services/ac-maintenance" },
     { name: "Construction", path: "/services/construction-work" },
   ];
 

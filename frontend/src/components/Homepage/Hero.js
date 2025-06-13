@@ -4,9 +4,9 @@ import useAuth from "../../hooks/useAuth";
 // Import our custom CSS
 import "./Hero.css";
 import electricalService from "../../images/electricalConnection.jpg";
-import plumbing from "../../images/PlumbingGizzersetup.jpg";
-import ConstructionWork from "../../images/ConstructionRenuvation.jpg";
-import painting from "../../images/painting.jpg";
+import plumbing from "../../images/PlumbingSetting2jpg.jpg";
+import ConstructionWork from "../../images/constructionRenuvationWork.png";
+import painting from "../../images/paintingService.jpg";
 import AcServiceing from "../../images/ACsetup.jpg";
 
 const Hero = () => {
@@ -28,7 +28,7 @@ const Hero = () => {
       image: plumbing,
     },
     {
-      title: "Construction Work",
+      title: "Construction Renovation Work",
       subtitle: "Building your dreams with precision and care",
       image: ConstructionWork,
     },

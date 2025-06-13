@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ServicePage.css";
+import painting from "../../images/painting3.jpg";
+import painting2 from "../../images/painting2.jpg";
+import painting3 from "../../images/painting.jpg";
 
 const Painting = () => {
   return (
@@ -34,10 +37,7 @@ const Painting = () => {
             </p>
           </div>
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Professional interior painting"
-            />
+            <img src={painting2} alt="Professional interior painting" />
           </div>
         </div>
       </section>
@@ -46,10 +46,7 @@ const Painting = () => {
         <h2 className="service-section-title">Exterior Painting</h2>
         <div className="service-content image-left">
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Professional exterior house painting"
-            />
+            <img src={painting} alt="Professional exterior house painting" />
           </div>
           <div className="service-text">
             <p>
@@ -215,10 +212,7 @@ const Painting = () => {
             </p>
           </div>
           <div className="service-image">
-            <img
-              src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60"
-              alt="Premium paint products and supplies"
-            />
+            <img src={painting3} alt="Premium paint products and supplies" />
           </div>
         </div>
       </section>

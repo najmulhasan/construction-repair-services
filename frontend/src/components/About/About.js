@@ -163,7 +163,7 @@ const About = () => {
   // Updated team members data with more relevant information
   const teamMembers = [
     {
-      name: "Robert Anderson",
+      name: "Asad Khan",
       position: "Founder & CEO",
       image: "https://randomuser.me/api/portraits/men/32.jpg",
       bio: "With over 25 years of experience in construction and engineering, Robert founded our company with a vision to deliver exceptional quality and service.",

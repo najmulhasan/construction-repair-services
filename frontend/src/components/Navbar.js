@@ -40,7 +40,7 @@ const Navbar = () => {
     },
     // Home page at top (dark transparent background with white text)
     home: {
-      background: "bg-home-nav",
+      background: "bg-blue-600",
       text: "text-white",
       shadow: "shadow-none",
       hover: "hover:text-yellow-300",
@@ -50,7 +50,7 @@ const Navbar = () => {
     },
     // Services page (blue background)
     services: {
-      background: "bg-blue-600",
+      background: "bg-teal-600",
       text: "text-white",
       shadow: "shadow-md",
       hover: "hover:text-yellow-200",
@@ -165,8 +165,8 @@ const Navbar = () => {
     { name: "Electrical", path: "electrical-service" },
     { name: "Painting", path: "painting-service" },
     {
-      name: "AC Repairing",
-      path: "ac-repairing",
+      name: "AC Maintenance",
+      path: "ac-maintenance",
     },
     { name: "Construction Work", path: "construction-work" },
   ];
