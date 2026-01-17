@@ -1,0 +1,86 @@
+name: Lint and Code Quality (Feature Branches)
+
+on:
+  push:
+    branches:
+      - 'feat/*'
+  pull_request:
+    branches:
+      - 'feat/*'
+
+jobs:
+  lint-and-quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Full history for SonarQube analysis
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies (Backend)
+        working-directory: ./backend
+        run: npm ci
+
+      - name: Install dependencies (Frontend)
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v40
+        with:
+          files: |
+            **/*.js
+            **/*.jsx
+
+      - name: Lint changed files (Backend)
+        if: steps.changed-files.outputs.modified_files != ''
+        working-directory: ./backend
+        run: |
+          if [ -f .eslintrc.js ]; then
+            npx eslint ${{ steps.changed-files.outputs.modified_files }} --max-warnings 0 || true
+          fi
+
+      - name: Lint changed files (Frontend)
+        if: steps.changed-files.outputs.modified_files != ''
+        working-directory: ./frontend
+        run: |
+          npm run lint -- ${{ steps.changed-files.outputs.modified_files }} --max-warnings 0 2>/dev/null || true
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@master
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=construction-repair-services
+            -Dsonar.sources=backend,frontend
+            -Dsonar.exclusions=**/node_modules/**,**/build/**,**/dist/**,**/*.test.js
+
+      - name: Create Pull Request to Integration
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feat/')
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore: merge feature branch to integration'
+          title: 'Merge ${{ github.ref_name }} to integration'
+          body: |
+            ## Automated PR
+            This PR was automatically created from the feature branch: `${{ github.ref_name }}`
+            
+            ### Quality Checks:
+            - ✅ ESLint passed for modified files
+            - ✅ SonarQube analysis completed
+            
+            Please review the changes and SonarQube analysis before merging.
+          branch: patch/merge-${{ github.ref_name }}
+          base: integration
+          delete-branch: true

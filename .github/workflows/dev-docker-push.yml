@@ -1,0 +1,130 @@
+name: Build, Scan and Push Docker Image (Dev Release)
+
+on:
+  pull_request:
+    branches:
+      - dev
+    types:
+      - closed
+
+jobs:
+  build-and-push:
+    if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'dev' && github.event.pull_request.head.ref == 'integration'
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      packages: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Extract version from package.json
+        id: version
+        run: |
+          VERSION=$(node -p "require('./backend/package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      - name: Build Backend Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          dockerfile: ./backend/Dockerfile
+          push: false
+          load: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/construction-backend:${{ steps.version.outputs.version }}
+            ${{ secrets.DOCKER_USERNAME }}/construction-backend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Build Frontend Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          dockerfile: ./frontend/Dockerfile
+          push: false
+          load: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/construction-frontend:${{ steps.version.outputs.version }}
+            ${{ secrets.DOCKER_USERNAME }}/construction-frontend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Install Trivy vulnerability scanner
+        run: |
+          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+          echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+          sudo apt-get update
+          sudo apt-get install -y trivy
+
+      - name: Scan Backend image for vulnerabilities
+        run: |
+          trivy image --severity HIGH,CRITICAL \
+            --exit-code 0 \
+            --no-progress \
+            ${{ secrets.DOCKER_USERNAME }}/construction-backend:${{ steps.version.outputs.version }} \
+            > backend-scan-report.txt
+          cat backend-scan-report.txt
+
+      - name: Scan Frontend image for vulnerabilities
+        run: |
+          trivy image --severity HIGH,CRITICAL \
+            --exit-code 0 \
+            --no-progress \
+            ${{ secrets.DOCKER_USERNAME }}/construction-frontend:${{ steps.version.outputs.version }} \
+            > frontend-scan-report.txt
+          cat frontend-scan-report.txt
+
+      - name: Upload vulnerability reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: vulnerability-reports
+          path: |
+            backend-scan-report.txt
+            frontend-scan-report.txt
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push Backend image to Docker Hub
+        uses: docker/build-push-action@v4
+        with:
+          context: ./backend
+          dockerfile: ./backend/Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/construction-backend:${{ steps.version.outputs.version }}
+            ${{ secrets.DOCKER_USERNAME }}/construction-backend:latest
+          cache-from: type=gha
+
+      - name: Push Frontend image to Docker Hub
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          dockerfile: ./frontend/Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/construction-frontend:${{ steps.version.outputs.version }}
+            ${{ secrets.DOCKER_USERNAME }}/construction-frontend:latest
+          cache-from: type=gha
+
+      - name: Create deployment summary
+        run: |
+          echo "## 🐳 Docker Images Pushed Successfully" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Backend Image" >> $GITHUB_STEP_SUMMARY
+          echo "- \`${{ secrets.DOCKER_USERNAME }}/construction-backend:${{ steps.version.outputs.version }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- \`${{ secrets.DOCKER_USERNAME }}/construction-backend:latest\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Frontend Image" >> $GITHUB_STEP_SUMMARY
+          echo "- \`${{ secrets.DOCKER_USERNAME }}/construction-frontend:${{ steps.version.outputs.version }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- \`${{ secrets.DOCKER_USERNAME }}/construction-frontend:latest\`" >> $GITHUB_STEP_SUMMARY

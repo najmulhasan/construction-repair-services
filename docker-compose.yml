@@ -1,0 +1,71 @@
+services:
+  # Backend service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: construction-repair-services-backend:latest
+    container_name: construction-backend
+    ports:
+      - "5005:5005"
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - PORT=${PORT:-5005}
+      - EMAIL_USER=${EMAIL_USER}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD}
+      - COMPANY_EMAIL=${COMPANY_EMAIL}
+      - COMPANY_NAME=${COMPANY_NAME}
+    volumes:
+      - backend_node_modules:/app/node_modules
+    networks:
+      - construction-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:5005/api/test', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  # Frontend service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_URL: http://backend:5005
+        REACT_APP_ENV: development
+    image: construction-repair-services-frontend:latest
+    container_name: construction-frontend
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    environment:
+      - REACT_APP_API_URL=http://backend:5005
+      - REACT_APP_ENV=development
+      - NODE_ENV=production
+    volumes:
+      - frontend_node_modules:/app/node_modules
+    networks:
+      - construction-network
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+networks:
+  construction-network:
+    driver: bridge
+
+volumes:
+  backend_node_modules:
+  frontend_node_modules:

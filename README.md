@@ -1,23 +1,23 @@
-# Construction and Repair Service Website
+# Construction Repair Services
 
-A comprehensive website for a construction and repair service company with enhanced contact features.
+A modern full-stack application for construction and repair service management, featuring a React frontend and Node.js backend, fully containerized with Docker.
 
-## Contact System Features
+## 🚀 Features
 
-The website includes multiple ways for users to get in touch with the company:
+- **Service Management** - Browse and manage various construction services
+- **Contact Form** - Direct communication system with automated email notifications
+- **Admin Dashboard** - Manage services and categories
+- **Responsive Design** - Mobile-first approach with Tailwind CSS
+- **Docker Support** - Easy deployment with Docker Compose
+- **CI/CD Pipeline** - Automated testing, linting, and Docker Hub deployment
 
-1. **Contact Form** - Users can fill out a detailed contact form with name, email, phone, subject, and message.
-2. **Callback Request** - Users can request a callback at their preferred time of day.
-3. **Quick Contact Options** - Direct buttons for:
-   - Calling the company's phone number
-   - Sending an email
-   - Connecting via WhatsApp with a pre-filled message
+## 📋 Prerequisites
 
-## Setup Instructions
-
-### Prerequisites
-
-- Node.js (v14+ recommended)
+- Docker & Docker Compose
+- Node.js 18+ (for local development)
+- Git
+- Docker Hub account (for pushing images)
+- SonarQube account (for code quality analysis)
 - npm or yarn
 
 ### Installation
